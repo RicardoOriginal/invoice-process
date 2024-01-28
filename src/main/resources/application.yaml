@@ -1,0 +1,49 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /invoice
+
+spring:
+  application:
+    version: 1
+    description: Microservice responsible for maintaining the invoice entities
+    name: invoice
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_URI:localhost:5432}/postgres?prepareThreshold=0
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASS:password}
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
+      table-prefix: public.batch_
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      file-size-threshold: 200MB
+      enabled: true
+      max-request-size: 200MB
+    http:
+      multipart:
+        max-request-size: 200MB
+        max-file-size: 200MB
+
+logging:
+  level:
+    org:
+      springframework:
+        web: ${LOG_LEVEL_SPRING:DEBUG}
+        boot:
+          actuate: ${LOG_LEVEL_SPRING_ACTUATE:WARN}
+
+sender: "ricardo.oliveira@gmail.com"
+fileOutput: "C:/Users/RicardoLimaOliveira/curso/kanastra/file/output"
+
+file-dir:
+  base-path: "C:/Users/RicardoLimaOliveira/curso/kanastra/file/"
+  bill:
+    in: "bill/input/"
+    processing: "bill/processing/"
+    processed: "bill/output/"
