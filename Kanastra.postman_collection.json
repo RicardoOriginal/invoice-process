@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "c0e2f769-1dca-433c-b926-792801d3fd9d",
+		"name": "Kanastra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10492218"
+	},
+	"item": [
+		{
+			"name": "process file",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"postman.setEnvironmentVariable(\"traceLogId\", Math.floor(Math.random() * 99999999) + 1);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "traceLogId",
+						"value": "{{traceLogId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/RicardoLimaOliveira/curso/kanastra/input1000000.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/invoice/process-file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"invoice",
+						"process-file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list files processed",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"postman.setEnvironmentVariable(\"traceLogId\", Math.floor(Math.random() * 99999999) + 1);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "traceLogId",
+						"value": "{{traceLogId}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9000/invoice/process-file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"invoice",
+						"process-file"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
