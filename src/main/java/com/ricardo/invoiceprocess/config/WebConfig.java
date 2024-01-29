@@ -1,4 +1,4 @@
-package com.ricardo.invoiceprocess.service;
+package com.ricardo.invoiceprocess.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
