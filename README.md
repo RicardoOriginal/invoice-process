@@ -10,3 +10,5 @@ Procedimentos para implantação do sistema de processamento de boletos e envio 
 
 3 - Subir frontend;
     Fiz poucas alterações, logo é só subir o projeto como está no readme do mesmo.
+    npm i
+    npm run dev:node
